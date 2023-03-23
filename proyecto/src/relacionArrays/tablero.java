@@ -168,8 +168,7 @@ package relacionArrays;
 		   for(int j=0;j<matriz.length;j++) {
 			   coincidencia=true;
 			   simbolo=matriz[0][j];
-			   if(simbolo!=simboloDef) {
-				 for(int i=1;i<matriz[0].length;i++) {
+				 for(int i=1;i<matriz[0].length && simbolo!=simboloDef;i++) {
 					 if(simbolo!=matriz[i][j]) {
 						 coincidencia=false;
 					 }
@@ -179,7 +178,7 @@ package relacionArrays;
 				 }
 			   }
 			   
-		   }
+		   
 		return simboloDef;
 	   }
 	  public static char coincidenciaDiagonal(char[][]matriz,char simboloDef) {
