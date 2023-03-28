@@ -60,25 +60,25 @@ package relacionArrays;
 		   char simbolo=coincidenciaLinea(matriz,simboloDef);
 		   if(simbolo!=simboloDef) {
 			   if(simboloDef==J1) {
-				   System.out.println("Ha ganado el jugador 1");
-			   }else {
 				   System.out.println("Ha ganado el jugador 2");
+			   }else {
+				   System.out.println("Ha ganado el jugador 1");
 			   }
 		   }
 		   simbolo=coincidenciaColumna(matriz,simboloDef);
 		   if(simbolo!=simboloDef) {
 			   if(simboloDef==J1) {
-				   System.out.println("Ha ganado el jugador 1");
-			   }else {
 				   System.out.println("Ha ganado el jugador 2");
+			   }else {
+				   System.out.println("Ha ganado el jugador 1");
 			   }
 		   }
 		   simbolo=coincidenciaDiagonal(matriz,simboloDef);
 		   if(simbolo!=simboloDef) {
 			   if(simboloDef==J1) {
-				   System.out.println("Ha ganado el jugador 1");
-			   }else {
 				   System.out.println("Ha ganado el jugador 2");
+			   }else {
+				   System.out.println("Ha ganado el jugador 1");
 			   }
 		   }
 	   }
