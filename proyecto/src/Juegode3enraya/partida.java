@@ -1,7 +1,6 @@
 package Juegode3enraya;
 
 import java.util.Scanner;
-
 public class partida {
 	private tablero tableroPartida=new tablero();
 	public  void Jugar() {
@@ -23,7 +22,7 @@ public class partida {
 				   mostrarTurno(turno);//Mostramos el turno
 				   tableroPartida.mostrarMatriz();//Mostramos matriz en pantalla
 			   correcto=false;
-			   System.out.println("Dame una fila (del 1 al 3)");//Pide filas
+			   System.out.println("\u001B[0m"+"Dame una fila (del 1 al 3)");//Pide filas
 			 fila=sc.nextInt();
 			System.out.println("Dame una columna (del 1 al 3)");//Pide columnas
 			 columna=sc.nextInt();

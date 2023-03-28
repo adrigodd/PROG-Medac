@@ -27,7 +27,7 @@ public class tablero {
 		// Recorre la matriz y muestra cada posición en pantalla
 		   for(int i=0;i<matriz.length;i++) {
 			   for(int j=0;j<matriz.length;j++) {
-				   System.out.print(matriz[i][j]+" ");
+				   System.out.print("\u001B[31m"+matriz[i][j]+" ");
 			   }
 			   System.out.println("");
 		   }
