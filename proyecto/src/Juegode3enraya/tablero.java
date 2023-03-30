@@ -1,17 +1,20 @@
 package Juegode3enraya;
 
 /**
- * Esta clase va a servir para generar el tablero de la partida, asi como sus métodos específicos
+ * Esta clase va a servir para generar el tablero de la partida, asi como sus
+ * métodos específicos
+ * 
  * @author Adrián Sánchez Nieto
  * @version 30/03/2023
  */
 public class tablero {
-	
+
 	private celda[][] tablero = new celda[3][3];
 	private final char simboloDef = '-';
-/**
- * Constructor con parámetros
- */
+
+	/**
+	 * Constructor con parámetros
+	 */
 	public tablero() {
 		char valor = simboloDef;
 		for (int i = 0; i < this.tablero.length; i++) {
@@ -21,106 +24,127 @@ public class tablero {
 			}
 		}
 	}
-/**
- * Metodo get para obtener el arrays del tablero
- * @return tablero te devuelve el tablero entero.
- */
+
+	/**
+	 * Metodo get para obtener el arrays del tablero
+	 * 
+	 * @return tablero te devuelve el tablero entero.
+	 */
 	public celda[][] getTablero() {
 		return tablero;
 	}
-/**
- * Metodo set para modificar el arrays del tablero
- * @param tablero El tablero es el arrays del programa
- */
+
+	/**
+	 * Metodo set para modificar el arrays del tablero
+	 * 
+	 * @param tablero El tablero es el arrays del programa
+	 */
 	public void setTablero(celda[][] tablero) {
 		this.tablero = tablero;
 	}
-/**
- * Método para mostrar la matriz en pantalla
- * @param colorJ1 Sirve para mostrar el color del Jugador1
- * @param colorJ2 Sirve para mostrar el color del Jugador1
- * @return te devuelve la matriz actualizada.
- */
-	
+
+	/**
+	 * Método para mostrar la matriz en pantalla
+	 * 
+	 * @param colorJ1 Sirve para mostrar el color del Jugador1
+	 * @param colorJ2 Sirve para mostrar el color del Jugador1
+	 * @return te devuelve la matriz actualizada.
+	 */
+
 	public String mostrarMatriz(String colorJ1, String colorJ2) {
 		String resultado = "";
 
 		// Recorre la matriz y muestra cada posición en pantalla
 		for (int i = 0; i < tablero.length; i++) {
 			for (int j = 0; j < tablero.length; j++) {
-				System.out.print("\u001B[31m"+tablero[i][j] + " ");
+				System.out.print("\u001B[31m" + tablero[i][j] + " ");
 			}
 			System.out.println("");
 		}
 		return resultado;
 	}
-/**
- * Método para insertar un símbolo en una posición específica de la matriz
- * @param fila Para introducir la fila que quieres seleccionar
- * @param columna Para introducir la columna que quieres seleccionar
- * @param simbolo Para introducir el simbolo que quieres introducir
- */
-	
+
+	/**
+	 * Método para insertar un símbolo en una posición específica de la matriz
+	 * 
+	 * @param fila    Para introducir la fila que quieres seleccionar
+	 * @param columna Para introducir la columna que quieres seleccionar
+	 * @param simbolo Para introducir el simbolo que quieres introducir
+	 */
+
 	public void InsertarEn(int fila, int columna, char simbolo) {
 		this.tablero[fila - 1][columna - 1].setValor(simbolo);
 		this.tablero[fila - 1][columna - 1].setOcupado(true);
 	}
-/**
- * Método booleano para validar si una posición está dentro de los límites de la matriz
- * @param fila Para introducir la fila que quieres seleccionar
- * @param columna Para introducir la columna que quieres seleccionar
- * @return te devuelve si la posicion introducida esta entre esa fila seleccionada y esa columna seleccionada
- */
-	
+
+	/**
+	 * Método booleano para validar si una posición está dentro de los límites de la
+	 * matriz
+	 * 
+	 * @param fila    Para introducir la fila que quieres seleccionar
+	 * @param columna Para introducir la columna que quieres seleccionar
+	 * @return te devuelve si la posicion introducida esta entre esa fila
+	 *         seleccionada y esa columna seleccionada
+	 */
+
 	public boolean validarPosicion(int fila, int columna) {
-		boolean resultado=false;
+		boolean resultado = false;
 		if (fila > 0 && fila <= this.tablero.length && columna > 0 && columna <= this.tablero.length) {
-			resultado=true;
+			resultado = true;
 		}
 		return resultado;
 	}
-/**
- * Método booleano para validar si una posición de la matriz ya tiene un valor asignado
- * @param fila Para introducir la fila que quieres seleccionar
- * @param columna Para introducir la columna que quieres seleccionar
- * @return te devuelve si la posicion introducida tiene un simbolo ya introducido
- */
-	
+
+	/**
+	 * Método booleano para validar si una posición de la matriz ya tiene un valor
+	 * asignado
+	 * 
+	 * @param fila    Para introducir la fila que quieres seleccionar
+	 * @param columna Para introducir la columna que quieres seleccionar
+	 * @return te devuelve si la posicion introducida tiene un simbolo ya
+	 *         introducido
+	 */
+
 	public boolean HayValorPosicion(int fila, int columna) {
-		boolean resultado=false;
+		boolean resultado = false;
 		if (this.tablero[fila - 1][columna - 1].getValor() != this.simboloDef) {
-			resultado= true;// Si de la matriz, la fila y columna que ha puesto es DIFERENTE al simbolo
-						// default significa que si puede poner su simbolo
+			resultado = true;// Si de la matriz, la fila y columna que ha puesto es DIFERENTE al simbolo
+			// default significa que si puede poner su simbolo
 		}
 		return resultado;
 	}
-/**
- * Método para validar si la matriz está llena de símbolos
- * @return si esta en true, la matriz esta llena, por lo tanto como ya esta indicado en la partida, el juego termina 
- */
-	
+
+	/**
+	 * Método para validar si la matriz está llena de símbolos
+	 * 
+	 * @return si esta en true, la matriz esta llena, por lo tanto como ya esta
+	 *         indicado en la partida, el juego termina
+	 */
+
 	public boolean matrizLlena() {
 		int contador = 0;
 		boolean bool = false;
 		for (int i = 0; i < this.tablero.length; i++) {
 			for (int j = 0; j < this.tablero.length; j++) {
-				if (this.tablero[i][j].isOcupado()) {
+				if (this.tablero[i][j].isOcupado()) {// Si el la celda[i][j] esta ocupada el contador le suma 1 para que
+														// se cuente que esa casilla si esta ocupada
 					contador++;
-					bool = false;// Si de la matriz, la fila y columna que ha puesto es IGUAL al simbolo default
-									// significa que la matriz no esta llena
 				}
 			}
 		}
-		if (contador == 9) {
+		if (contador == 9) {// si el contador llega a 9 significa que todas las celdas estan ocupadas
 			bool = true;
 		}
 		return bool;
 	}
-/**
- * Método para validar si hay una coincidencia de símbolos en una línea
- * @return si la coincidencia esta en true, el jugador gana ya que ha habido una coincidencia en esa linea
- */
-	
+
+	/**
+	 * Método para validar si hay una coincidencia de símbolos en una línea
+	 * 
+	 * @return si la coincidencia esta en true, el jugador gana ya que ha habido una
+	 *         coincidencia en esa linea
+	 */
+
 	public char coincidenciaLinea() {
 		char simbolo, simboloLocal = this.simboloDef;
 		boolean coincidencia = true;
@@ -152,10 +176,13 @@ public class tablero {
 		return simboloLocal;
 
 	}
-/**
- * Método para validar si hay una coincidencia de símbolos en una columna
- * @return si la coincidencia esta en true, el jugador gana ya que ha habido una coincidencia en esa columna
- */
+
+	/**
+	 * Método para validar si hay una coincidencia de símbolos en una columna
+	 * 
+	 * @return si la coincidencia esta en true, el jugador gana ya que ha habido una
+	 *         coincidencia en esa columna
+	 */
 
 	public char coincidenciaColumna() {
 		char simbolo, simboloLocal = simboloDef;
@@ -190,11 +217,14 @@ public class tablero {
 		return simboloLocal;
 
 	}
-/**
- * Método para validar si hay una coincidencia de símbolos en una diagonal
- * @return si la coincidencia esta en true, el jugador gana ya que ha habido una coincidencia en esa diagonal
- */
-	
+
+	/**
+	 * Método para validar si hay una coincidencia de símbolos en una diagonal
+	 * 
+	 * @return si la coincidencia esta en true, el jugador gana ya que ha habido una
+	 *         coincidencia en esa diagonal
+	 */
+
 	public char coincidenciaDiagonal() {
 		char simbolo, simboloLocal = simboloDef;
 		boolean coincidencia = true;// Inicializamos la variable booleana en verdadera
