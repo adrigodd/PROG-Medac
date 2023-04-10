@@ -25,74 +25,108 @@ public class partida {
 		Jugador2 = new Jugador('O');
 		char vacio = '-';
 		boolean turno = true;
-		System.out.println("\u001B[0m" + "Elige un color de estos Jugador1:");
-		System.out.println("Azul:1");
-		System.out.println("Verde:2");
-		System.out.println("Rojo:3");
-		System.out.println("Rosa:4");
-		System.out.println("Amarillo:5");
-		color = sc.nextInt();
-		Jugador1.setColorJugador(diccionarioColores(color));
-		color = 0;
-		System.out.println("Dime un color que quieras Jugador2");
-		System.out.println("Azul:1");
-		System.out.println("Verde:2");
-		System.out.println("Rojo:3");
-		System.out.println("Rosa:4");
-		System.out.println("Amarillo:5");
-		color = sc.nextInt();
-		Jugador2.setColorJugador(diccionarioColores(color));
-		boolean posValida;
-		boolean correcto;
-		int fila;
-		int columna;
-		System.out.println("Bienvenido al 3 en raya:\n");
-		while (!finPartida(tableroPartida, vacio)) {// mientras el fin de partida sea diferente se mete en el while
-
+		System.out.println("\u001B[0m" + "¿Quieres jugar?");
+		System.out.println("1.Jugar");
+		System.out.println("2.Salir");
+		int opcion = sc.nextInt();
+		int reiniciar;
+		int salir;
+		switch(opcion) {
+		
+		case 1:
 			do {
+				System.out.println("\u001B[0m" + "Elige un color de estos Jugador1:");
+				System.out.println("Azul:1");
+				System.out.println("Verde:2");
+				System.out.println("Rojo:3");
+				System.out.println("Rosa:4");
+				System.out.println("Amarillo:5");
+				color = sc.nextInt();
+				Jugador1.setColorJugador(diccionarioColores(color));
+				color = 0;
+				System.out.println("Dime un color que quieras Jugador2");
+				System.out.println("Azul:1");
+				System.out.println("Verde:2");
+				System.out.println("Rojo:3");
+				System.out.println("Rosa:4");
+				System.out.println("Amarillo:5");
+				color = sc.nextInt();
+				Jugador2.setColorJugador(diccionarioColores(color));
+				boolean posValida;
+				boolean correcto;
+				int fila;
+				int columna;
+				System.out.println("Bienvenido al 3 en raya:\n");
+				while (!finPartida(tableroPartida, vacio)) {// mientras el fin de partida sea diferente se mete en el while
 
-				mostrarTurno(turno);// Mostramos el turno
-				tableroPartida.mostrarMatriz(Jugador1.getColorJugador(), Jugador2.getColorJugador());// Mostramos matriz
-																										// en pantalla
-				correcto = false;
-				System.out.println("\u001B[0m" + "Dame una fila (del 1 al 3)");// Pide filas
-				fila = sc.nextInt();
-				System.out.println("Dame una columna (del 1 al 3)");// Pide columnas
-				columna = sc.nextInt();
-				posValida = tableroPartida.validarPosicion(fila, columna);// miramos primero si la fila/columna cumple
-																			// las condiciones de validar posicion y se
-																			// la implementamos a una variable
-				if (posValida) {// si el validar posicion esta en true entra, si no se va al else de la posicion
-								// no es valida
-					if (!tableroPartida.HayValorPosicion(fila, columna)) {// Comprueba que haya un simbolo en la
-																			// posicion marcada
-						correcto = true;
+					do {
+
+						mostrarTurno(turno);// Mostramos el turno
+						tableroPartida.mostrarMatriz(Jugador1.getColorJugador(), Jugador2.getColorJugador(),turno);// Mostramos matriz
+																												// en pantalla
+						correcto = false;
+						System.out.println("\u001B[0m" + "Dame una fila (del 1 al 3)");// Pide filas
+						fila = sc.nextInt();
+						System.out.println("Dame una columna (del 1 al 3)");// Pide columnas
+						columna = sc.nextInt();
+						posValida = tableroPartida.validarPosicion(fila, columna);// miramos primero si la fila/columna cumple
+																					// las condiciones de validar posicion y se
+																					// la implementamos a una variable
+						if (posValida) {// si el validar posicion esta en true entra, si no se va al else de la posicion
+										// no es valida
+							if (!tableroPartida.HayValorPosicion(fila, columna)) {// Comprueba que haya un simbolo en la
+																					// posicion marcada
+								correcto = true;
+							} else {
+								System.out.println("Ya hay una marca en esa posicion");
+							}
+						} else {
+							System.out.println("La posicion no es valida");
+						}
+
+					} while (!correcto);// haces el do while mientras el booleano correcto que esta inicializado en
+										// false, pasa a ser true, que la unica manera es si la posicion es valida y no
+										// hay ningun simbolo
+					if (turno) {
+						tableroPartida.InsertarEn(fila, columna, this.Jugador1.getIcono(),this.Jugador1.getColorJugador());// Inserta la ficha, dependiendo del
+																							// booleano turno,inserta la ficha
+																							// del jugador 1 o la del jugador2
 					} else {
-						System.out.println("Ya hay una marca en esa posicion");
+						tableroPartida.InsertarEn(fila, columna, this.Jugador2.getIcono(),Jugador2.getColorJugador());// Inserta la ficha, dependiendo del
+																							// booleano turno,inserta la ficha
+																							// del jugador 1 o la del jugador2
 					}
-				} else {
-					System.out.println("La posicion no es valida");
+					turno = !turno;
 				}
 
-			} while (!correcto);// haces el do while mientras el booleano correcto que esta inicializado en
-								// false, pasa a ser true, que la unica manera es si la posicion es valida y no
-								// hay ningun simbolo
-			if (turno) {
-				tableroPartida.InsertarEn(fila, columna, this.Jugador1.getIcono());// Inserta la ficha, dependiendo del
-																					// booleano turno,inserta la ficha
-																					// del jugador 1 o la del jugador2
-			} else {
-				tableroPartida.InsertarEn(fila, columna, this.Jugador2.getIcono());// Inserta la ficha, dependiendo del
-																					// booleano turno,inserta la ficha
-																					// del jugador 1 o la del jugador2
-			}
-			turno = !turno;
+				tableroPartida.mostrarMatriz(Jugador1.getColorJugador(),Jugador2.getColorJugador(),turno);// le muestra la matriz
+																										// actualizada
+				mostrarGanador(tableroPartida, vacio);// comprueba que tras la posicion haya algun ganador
+				System.out.println("¿Quieres reiniciar");
+				System.out.println("1.Si");
+				System.out.println("2.No");
+				reiniciar=sc.nextInt();
+			}while(reiniciar==1);
+			
+			
+			
+			break;
+		case 2:
+			do {
+				System.out.println("¿Quieres de verdad irte?");
+				System.out.println("1.Si");
+				System.out.println("2.No");
+				salir=sc.nextInt();
+				
+			}while(salir==2);
+			System.out.println("Has decidido irte,adiós");
+			break;
 		}
-
-		tableroPartida.mostrarMatriz(Jugador1.getColorJugador(), Jugador2.getColorJugador());// le muestra la matriz
-																								// actualizada
-		mostrarGanador(tableroPartida, vacio);// comprueba que tras la posicion haya algun ganador
-	}
+		
+		
+	
+		}
+		
 
 	public void mostrarGanador(tablero tableroPartida, char simboloDef) {
 		char simbolo = tableroPartida.coincidenciaLinea();
@@ -195,6 +229,7 @@ public class partida {
 		case 5:
 			resultado = "\u001B[33m";
 		}
+		System.out.println(resultado + "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA2");
 		return resultado;
 	}
 }

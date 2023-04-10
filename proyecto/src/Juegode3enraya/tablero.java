@@ -51,16 +51,28 @@ public class tablero {
 	 * @return te devuelve la matriz actualizada.
 	 */
 
-	public String mostrarMatriz(String colorJ1, String colorJ2) {
+	public String mostrarMatriz(String colorJ1, String colorJ2,boolean turno) {
 		String resultado = "";
-
+		
 		// Recorre la matriz y muestra cada posición en pantalla
-		for (int i = 0; i < tablero.length; i++) {
-			for (int j = 0; j < tablero.length; j++) {
-				System.out.print("\u001B[31m" + tablero[i][j] + " ");
+		if(turno) {
+			for (int i = 0; i < tablero.length; i++) {
+				for (int j = 0; j < tablero.length; j++) {
+					
+					System.out.print(colorJ2+tablero[i][j] + " ");
+				}
+				System.out.println("");
 			}
-			System.out.println("");
+		}else {
+			for (int i = 0; i < tablero.length; i++) {
+				for (int j = 0; j < tablero.length; j++) {
+					
+					System.out.print(colorJ1+tablero[i][j] + " ");
+				}
+				System.out.println("");
+			}
 		}
+		
 		return resultado;
 	}
 
@@ -72,9 +84,10 @@ public class tablero {
 	 * @param simbolo Para introducir el simbolo que quieres introducir
 	 */
 
-	public void InsertarEn(int fila, int columna, char simbolo) {
+	public void InsertarEn(int fila, int columna, char simbolo,String color) {
 		this.tablero[fila - 1][columna - 1].setValor(simbolo);
 		this.tablero[fila - 1][columna - 1].setOcupado(true);
+	
 	}
 
 	/**
