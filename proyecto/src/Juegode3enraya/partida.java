@@ -25,7 +25,7 @@ public class partida {
 		Jugador2 = new Jugador('O');
 		char vacio = '-';
 		boolean turno = true;
-		System.out.println("\u001B[0m" + "¿Quieres jugar?");
+		System.out.println("\u001B[0m" + "¿Quieres jugar? (Usa 1/2)");
 		System.out.println("1.Jugar");
 		System.out.println("2.Salir");
 		int opcion = sc.nextInt();
@@ -102,7 +102,7 @@ public class partida {
 				tableroPartida.mostrarMatriz(Jugador1.getColorJugador(),Jugador2.getColorJugador(),turno);// le muestra la matriz
 																										// actualizada
 				mostrarGanador(tableroPartida, vacio);// comprueba que tras la posicion haya algun ganador
-				System.out.println("¿Quieres reiniciar");
+				System.out.println("¿Quieres reiniciar (Usa 1/2)");
 				System.out.println("1.Si");
 				System.out.println("2.No");
 				reiniciar=sc.nextInt();
@@ -113,7 +113,7 @@ public class partida {
 			break;
 		case 2:
 			do {
-				System.out.println("¿Quieres de verdad irte?");
+				System.out.println("¿Quieres de verdad irte? (Usa 1/2)");
 				System.out.println("1.Si");
 				System.out.println("2.No");
 				salir=sc.nextInt();
@@ -186,7 +186,7 @@ public class partida {
 						tableroPartida.mostrarMatriz(Jugador1.getColorJugador(),Jugador2.getColorJugador(),turno);// le muestra la matriz
 																												// actualizada
 						mostrarGanador(tableroPartida, vacio);// comprueba que tras la posicion haya algun ganador
-						System.out.println("¿Quieres reiniciar");
+						System.out.println("¿Quieres reiniciar (Usa 1/2)");
 						System.out.println("1.Si");
 						System.out.println("2.No");
 						reiniciar=sc.nextInt();
