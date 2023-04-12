@@ -158,7 +158,6 @@ public class tablero {
 	public char coincidenciaLinea(int fila) {
 		char simbolo, simboloLocal = this.simboloDef;
 		boolean coincidencia = true;
-		boolean sigue = true;
 
 		coincidencia = true;// Inicializamos la variable booleana en verdadera
 		simbolo = this.tablero[fila][0].getValor();// le damos a la variable AUXILIAR el valor de la matriz[i][0] para
@@ -166,20 +165,25 @@ public class tablero {
 		// que vaya de nuevo al for, le des el valor de la I para que pueda comprobar el
 		// de 0,0 en el primero 1,0 en el segundo y 2,0 en el tercero
 		if (this.tablero[fila][0].isOcupado()) {
-			for (int j = 1; j < this.tablero.length && sigue; j++) {
-				if (simbolo != this.tablero[fila][j].getValor()) {
-					coincidencia = false;// Si entra en este IF significa que el simbolo aux es DIFERENTE al simbolo
-					// de su linea por tanto la coincidencia es false,por lo tanto NO hay
-					// coincidencia en esa linea
+			for (int j = 1; j < this.tablero.length; j++) {
+				if (coincidencia) {
+					coincidencia = (simbolo == this.tablero[fila][j].getValor());// Entra de primeras en este if ya que
+																					// la coincidencia de primeras esta
+																					// en true,cuando entra el booleano
+																					// de la derecha se lo aplica a
+																					// coincidencia, hay dos opciones si
+																					// ese booleano devuelve un true la
+																					// siguiente interaccion si entra a
+																					// revisar, si no, ni lo revisa.
 				}
 
 			}
 
-			if (coincidencia) {// Si cuando ha recorrido el for de la j no se mete en el IF que acabamos de
-								// mencionar signica que hya coincidencia por tanto ha ganado y te devuelve el
-								// simbolo el cual ha ganado
+			if (coincidencia) {// Una vez acabada el for si sigue en true la coincidencia significa que ha
+								// ganado, por tanto el simbolo que estamos utilizando se le da al simboloLocal
+								// que es el cual vamos a devolver.
 				simboloLocal = simbolo;
-				sigue = false;
+
 			}
 		}
 
@@ -197,7 +201,6 @@ public class tablero {
 	public char coincidenciaColumna(int columna) {
 		char simbolo, simboloLocal = simboloDef;
 		boolean coincidencia = true;
-		boolean sigue = true;
 
 		coincidencia = true;// Inicializamos la variable booleana en verdadera
 		simbolo = this.tablero[0][columna].getValor();// le damos a la variable AUXILIAR el valor de la matriz[i][0]
@@ -206,21 +209,27 @@ public class tablero {
 		// que vaya de nuevo al for, le des el valor de la I para que pueda comprobar el
 		// de 0,0 en el primero 0,1 en el segundo y 0,2 en el tercero
 		if (this.tablero[0][columna].isOcupado()) {
-			for (int i = 1; i < this.tablero.length && sigue; i++) {
+			for (int i = 1; i < this.tablero.length; i++) {
 
-				if (simbolo != this.tablero[i][columna].getValor()) {
-					coincidencia = false;// Si entra en este IF significa que el simbolo aux es DIFERENTE al simbolo
-											// de su linea por tanto la coincidencia es false,por lo tanto NO hay
-											// coincidencia en esa linea
+				if (coincidencia) {
+					coincidencia = (simbolo == this.tablero[i][columna].getValor());// Entra de primeras en este if ya
+																					// que la coincidencia de primeras
+																					// esta en true,cuando entra el
+																					// booleano de la derecha se lo
+																					// aplica a coincidencia, hay dos
+																					// opciones si ese booleano devuelve
+																					// un true la siguiente interaccion
+																					// si entra a revisar, si no, ni lo
+																					// revisa
 
 				}
 
 			}
-			if (coincidencia) {// Si cuando ha recorrido el for de la j no se mete en el IF que acabamos de
-								// mencionar signica que hya coincidencia por tanto ha ganado y te devuelve el
-								// simbolo el cual ha ganado
+			if (coincidencia) {// Una vez acabada el for si sigue en true la coincidencia significa que ha
+								// ganado, por tanto el simbolo que estamos utilizando se le da al simboloLocal
+								// que es el cual vamos a devolver
 				simboloLocal = simbolo;
-				sigue = false;
+
 			}
 		}
 

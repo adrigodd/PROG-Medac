@@ -30,7 +30,7 @@ public class partida {
 		System.out.println("2.Salir");
 		int opcion = sc.nextInt();
 		int reiniciar;
-		int salir;
+		
 		switch (opcion) {
 
 		case 1:
