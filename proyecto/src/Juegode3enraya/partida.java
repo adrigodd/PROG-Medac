@@ -54,11 +54,12 @@ public class partida {
 				Jugador2.setColorJugador(diccionarioColores(color));
 				boolean posValida;
 				boolean correcto;
-				int fila;
-				int columna;
+				int fila = 0;
+				int columna = 0;
 				System.out.println("Bienvenido al 3 en raya:\n");
-				while (!finPartida(tableroPartida, vacio)) {// mientras el fin de partida sea diferente se mete en el
-															// while
+				while (!finPartida(tableroPartida, vacio, fila, columna)) {// mientras el fin de partida sea diferente
+																			// se mete en el
+					// while
 
 					do {
 
@@ -114,7 +115,8 @@ public class partida {
 																											// muestra
 																											// la matriz
 																											// actualizada
-				mostrarGanador(tableroPartida, vacio);// comprueba que tras la posicion haya algun ganador
+				mostrarGanador(tableroPartida, vacio, fila, columna);// comprueba que tras la posicion haya algun
+																		// ganador
 				System.out.println("¿Quieres reiniciar (Usa 1/2)");
 				System.out.println("1.Si");
 				System.out.println("2.No");
@@ -132,8 +134,8 @@ public class partida {
 		}
 	}
 
-	public void mostrarGanador(tablero tableroPartida, char simboloDef) {
-		char simbolo = tableroPartida.coincidenciaLinea();
+	public void mostrarGanador(tablero tableroPartida, char simboloDef, int fila, int columna) {
+		char simbolo = tableroPartida.coincidenciaLinea(fila);
 		if (simbolo != simboloDef) {// primero comprobamos que el simbolo de coincidencialinea sea diferente al
 									// simbolodef
 			if (simbolo == this.Jugador1.getIcono()) {
@@ -142,7 +144,7 @@ public class partida {
 				System.out.println("Ha ganado el jugador 2 por linea");
 			}
 		}
-		simbolo = tableroPartida.coincidenciaColumna();
+		simbolo = tableroPartida.coincidenciaColumna(columna);
 
 		if (simbolo != simboloDef) {
 			if (simbolo == this.Jugador1.getIcono()) {
@@ -160,8 +162,8 @@ public class partida {
 				System.out.println("Ha ganado el jugador 2 por diagonal");
 			}
 		}
-		if (tableroPartida.matrizLlena() && (tableroPartida.coincidenciaLinea() == simboloDef
-				|| tableroPartida.coincidenciaColumna() == simboloDef
+		if (tableroPartida.matrizLlena() && (tableroPartida.coincidenciaLinea(fila) == simboloDef
+				|| tableroPartida.coincidenciaColumna(columna) == simboloDef
 				|| tableroPartida.coincidenciaDiagonal() != simboloDef)) {// este if indica que si la matriz esta llena
 																			// y no hay coincidencia, hay un empate
 			System.out.println("EMPATE");
@@ -191,10 +193,10 @@ public class partida {
 	 * @return devuelve en este caso el resultado, si es true, significa que la
 	 *         partida ha acabado, si es false aun no ha acabado
 	 */
-	public boolean finPartida(tablero tableroPartida, char simboloDef) {
+	public boolean finPartida(tablero tableroPartida, char simboloDef, int fila, int columna) {
 		boolean resultado = false;
-		if (tableroPartida.matrizLlena() || tableroPartida.coincidenciaLinea() != simboloDef
-				|| tableroPartida.coincidenciaColumna() != simboloDef
+		if (tableroPartida.matrizLlena() || tableroPartida.coincidenciaLinea(fila) != simboloDef
+				|| tableroPartida.coincidenciaColumna(columna) != simboloDef
 				|| tableroPartida.coincidenciaDiagonal() != simboloDef) {
 			resultado = true;
 		}

@@ -155,34 +155,34 @@ public class tablero {
 	 *         coincidencia en esa linea
 	 */
 
-	public char coincidenciaLinea() {
+	public char coincidenciaLinea(int fila) {
 		char simbolo, simboloLocal = this.simboloDef;
 		boolean coincidencia = true;
 		boolean sigue = true;
-		for (int i = 0; i < this.tablero.length && sigue; i++) {
-			coincidencia = true;// Inicializamos la variable booleana en verdadera
-			simbolo = this.tablero[i][0].getValor();// le damos a la variable AUXILIAR el valor de la matriz[i][0] para
+
+		coincidencia = true;// Inicializamos la variable booleana en verdadera
+		simbolo = this.tablero[fila][0].getValor();// le damos a la variable AUXILIAR el valor de la matriz[i][0] para
 													// que cada vez
-			// que vaya de nuevo al for, le des el valor de la I para que pueda comprobar el
-			// de 0,0 en el primero 1,0 en el segundo y 2,0 en el tercero
-			if (this.tablero[i][0].isOcupado()) {
-				for (int j = 1; j < this.tablero.length && sigue; j++) {
-					if (simbolo != this.tablero[i][j].getValor()) {
-						coincidencia = false;// Si entra en este IF significa que el simbolo aux es DIFERENTE al simbolo
-						// de su linea por tanto la coincidencia es false,por lo tanto NO hay
-						// coincidencia en esa linea
-					}
-
+		// que vaya de nuevo al for, le des el valor de la I para que pueda comprobar el
+		// de 0,0 en el primero 1,0 en el segundo y 2,0 en el tercero
+		if (this.tablero[fila][0].isOcupado()) {
+			for (int j = 1; j < this.tablero.length && sigue; j++) {
+				if (simbolo != this.tablero[fila][j].getValor()) {
+					coincidencia = false;// Si entra en este IF significa que el simbolo aux es DIFERENTE al simbolo
+					// de su linea por tanto la coincidencia es false,por lo tanto NO hay
+					// coincidencia en esa linea
 				}
 
-				if (coincidencia) {// Si cuando ha recorrido el for de la j no se mete en el IF que acabamos de
-									// mencionar signica que hya coincidencia por tanto ha ganado y te devuelve el
-									// simbolo el cual ha ganado
-					simboloLocal = simbolo;
-					sigue = false;
-				}
+			}
+
+			if (coincidencia) {// Si cuando ha recorrido el for de la j no se mete en el IF que acabamos de
+								// mencionar signica que hya coincidencia por tanto ha ganado y te devuelve el
+								// simbolo el cual ha ganado
+				simboloLocal = simbolo;
+				sigue = false;
 			}
 		}
+
 		return simboloLocal;
 
 	}
@@ -194,36 +194,36 @@ public class tablero {
 	 *         coincidencia en esa columna
 	 */
 
-	public char coincidenciaColumna() {
+	public char coincidenciaColumna(int columna) {
 		char simbolo, simboloLocal = simboloDef;
 		boolean coincidencia = true;
 		boolean sigue = true;
-		for (int j = 0; j < this.tablero.length && sigue; j++) {
-			coincidencia = true;// Inicializamos la variable booleana en verdadera
-			simbolo = this.tablero[0][j].getValor();// le damos a la variable AUXILIAR el valor de la matriz[i][0] para
-													// que cada vez
-			// que vaya de nuevo al for, le des el valor de la I para que pueda comprobar el
-			// de 0,0 en el primero 0,1 en el segundo y 0,2 en el tercero
-			if (this.tablero[0][j].isOcupado()) {
-				for (int i = 1; i < this.tablero.length && sigue; i++) {
 
-					if (simbolo != this.tablero[i][j].getValor()) {
-						coincidencia = false;// Si entra en este IF significa que el simbolo aux es DIFERENTE al simbolo
-												// de su linea por tanto la coincidencia es false,por lo tanto NO hay
-												// coincidencia en esa linea
+		coincidencia = true;// Inicializamos la variable booleana en verdadera
+		simbolo = this.tablero[0][columna].getValor();// le damos a la variable AUXILIAR el valor de la matriz[i][0]
+														// para
+		// que cada vez
+		// que vaya de nuevo al for, le des el valor de la I para que pueda comprobar el
+		// de 0,0 en el primero 0,1 en el segundo y 0,2 en el tercero
+		if (this.tablero[0][columna].isOcupado()) {
+			for (int i = 1; i < this.tablero.length && sigue; i++) {
 
-					}
+				if (simbolo != this.tablero[i][columna].getValor()) {
+					coincidencia = false;// Si entra en este IF significa que el simbolo aux es DIFERENTE al simbolo
+											// de su linea por tanto la coincidencia es false,por lo tanto NO hay
+											// coincidencia en esa linea
 
 				}
-				if (coincidencia) {// Si cuando ha recorrido el for de la j no se mete en el IF que acabamos de
-									// mencionar signica que hya coincidencia por tanto ha ganado y te devuelve el
-									// simbolo el cual ha ganado
-					simboloLocal = simbolo;
-					sigue = false;
-				}
+
 			}
-
+			if (coincidencia) {// Si cuando ha recorrido el for de la j no se mete en el IF que acabamos de
+								// mencionar signica que hya coincidencia por tanto ha ganado y te devuelve el
+								// simbolo el cual ha ganado
+				simboloLocal = simbolo;
+				sigue = false;
+			}
 		}
+
 		return simboloLocal;
 
 	}
