@@ -82,8 +82,8 @@ public class tablero {
 	 */
 
 	public void InsertarEn(int fila, int columna, char simbolo, String color) {
-		this.tablero[fila - 1][columna - 1].setValor(simbolo);
-		this.tablero[fila - 1][columna - 1].setOcupado(true);
+		this.tablero[fila][columna].setValor(simbolo);
+		this.tablero[fila][columna].setOcupado(true);
 
 	}
 
@@ -99,7 +99,7 @@ public class tablero {
 
 	public boolean validarPosicion(int fila, int columna) {
 		boolean resultado = false;
-		if (fila > 0 && fila <= this.tablero.length && columna > 0 && columna <= this.tablero.length) {
+		if (fila >= 0 && fila < this.tablero.length && columna >= 0 && columna < this.tablero.length) {
 			resultado = true;
 		}
 		return resultado;
@@ -117,7 +117,7 @@ public class tablero {
 
 	public boolean HayValorPosicion(int fila, int columna) {
 		boolean resultado = false;
-		if (this.tablero[fila - 1][columna - 1].getValor() != this.simboloDef) {
+		if (this.tablero[fila][columna].getValor() != this.simboloDef) {
 			resultado = true;// Si de la matriz, la fila y columna que ha puesto es DIFERENTE al simbolo
 			// default significa que si puede poner su simbolo
 		}
@@ -142,7 +142,7 @@ public class tablero {
 				}
 			}
 		}
-		if (contador == this.tablero.length) {// si el contador llega a 9 significa que todas las celdas estan ocupadas
+		if (contador == 9) {// si el contador llega a 9 significa que todas las celdas estan ocupadas
 			bool = true;
 		}
 		return bool;

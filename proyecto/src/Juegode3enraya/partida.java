@@ -35,6 +35,9 @@ public class partida {
 
 		case 1:
 			do {
+				tableroPartida=new tablero();
+				turno=true;
+				
 				System.out.println("\u001B[0m" + "Elige un color de estos Jugador1:");
 				System.out.println("Azul:1");
 				System.out.println("Verde:2");
@@ -62,6 +65,7 @@ public class partida {
 					// while
 
 					do {
+						
 
 						mostrarTurno(turno);// Mostramos el turno
 						tableroPartida.mostrarMatriz(Jugador1.getColorJugador(), Jugador2.getColorJugador(), turno);// Mostramos
@@ -71,8 +75,11 @@ public class partida {
 						correcto = false;
 						System.out.println("\u001B[0m" + "Dame una fila (del 1 al 3)");// Pide filas
 						fila = sc.nextInt();
+						fila--;
+						
 						System.out.println("Dame una columna (del 1 al 3)");// Pide columnas
 						columna = sc.nextInt();
+						columna--;
 						posValida = tableroPartida.validarPosicion(fila, columna);// miramos primero si la fila/columna
 																					// cumple
 																					// las condiciones de validar
