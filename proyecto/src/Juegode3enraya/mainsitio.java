@@ -14,5 +14,5 @@ public class mainsitio {
 		partida enraya = new partida();
 		enraya.Jugar();
 	}
-
+	
 }

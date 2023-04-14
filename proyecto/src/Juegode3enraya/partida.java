@@ -14,6 +14,8 @@ public class partida {
 	private tablero tableroPartida = new tablero();
 	private Jugador Jugador1;
 	private Jugador Jugador2;
+	private JugadorIA JugadorIA;
+	
 	private int color;
 
 	/**
@@ -21,8 +23,22 @@ public class partida {
 	 */
 	public void Jugar() {
 		Scanner sc = new Scanner(System.in);
-		Jugador1 = new Jugador('X');
-		Jugador2 = new Jugador('O');
+		int opcionIA = 0;
+		do {
+			System.out.println("2 Jugadores o 1 vs IA");
+			System.out.println("1.2 Jugadores");
+			System.out.println("2.1 VS IA");
+			opcionIA = sc.nextInt();
+		}while(opcionIA!=1 && opcionIA!=2);
+		
+		if(opcionIA==1) {
+			Jugador1 = new Jugador('X');
+			Jugador2 = new Jugador('O');
+		}else {
+			Jugador1 = new Jugador('X');
+			JugadorIA= new JugadorIA();
+		}
+	
 		char vacio = '-';
 		boolean turno = true;
 		System.out.println("\u001B[0m" + "¿Quieres jugar? (Usa 1/2)");
@@ -54,7 +70,12 @@ public class partida {
 				System.out.println("Rosa:4");
 				System.out.println("Amarillo:5");
 				color = sc.nextInt();
-				Jugador2.setColorJugador(diccionarioColores(color));
+				if(opcionIA==1) {
+					Jugador2.setColorJugador(diccionarioColores(color));
+				}else {
+					JugadorIA.setColorJugador(diccionarioColores(color));
+				}
+				
 				boolean posValida;
 				boolean correcto;
 				int fila = 0;
@@ -68,19 +89,41 @@ public class partida {
 						
 
 						mostrarTurno(turno);// Mostramos el turno
-						tableroPartida.mostrarMatriz(Jugador1.getColorJugador(), Jugador2.getColorJugador(), turno);// Mostramos
-																													// matriz
-																													// en
-																													// pantalla
-						correcto = false;
-						System.out.println("\u001B[0m" + "Dame una fila (del 1 al 3)");// Pide filas
-						fila = sc.nextInt();
-						fila--;
+						if(opcionIA==1) {
+							tableroPartida.mostrarMatriz(Jugador1.getColorJugador(), Jugador2.getColorJugador(), turno);// Mostramos
+							// matriz
+							// en
+							// pantalla
+						}else {
+							tableroPartida.mostrarMatriz(Jugador1.getColorJugador(), JugadorIA.getColorJugadorIA(), turno);// Mostramos
+							// matriz
+							// en
+							// pantalla
+						}
 						
-						System.out.println("Dame una columna (del 1 al 3)");// Pide columnas
-						columna = sc.nextInt();
-						columna--;
-						posValida = tableroPartida.validarPosicion(fila, columna);// miramos primero si la fila/columna
+						correcto = false;
+						if(opcionIA==1) {
+							System.out.println("\u001B[0m" + "Dame una fila (del 1 al 3)");// Pide filas
+							fila = sc.nextInt();
+							fila--;
+							
+							System.out.println("Dame una columna (del 1 al 3)");// Pide columnas
+							columna = sc.nextInt();
+							columna--;
+							
+						}else {
+							if(turno) {
+								System.out.println("\u001B[0m" + "Dame una fila (del 1 al 3)");// Pide filas
+								fila = sc.nextInt();
+								fila--;
+								
+								System.out.println("Dame una columna (del 1 al 3)");// Pide columnas
+								columna = sc.nextInt();
+								columna--;
+							}else {
+								tableroPartida.InsertarfichaIA(JugadorIA.getIcono(),JugadorIA.getColorJugadorIA());							}
+						}
+						posValida = tableroPartida.validarPosicion(fila, columna);
 																					// cumple
 																					// las condiciones de validar
 																					// posicion y se
@@ -99,14 +142,19 @@ public class partida {
 
 					} while (!correcto);// haces el do while mientras el booleano correcto que esta inicializado en
 										// false, pasa a ser true, que la unica manera es si la posicion es valida y no
-										// hay ningun simbolo
-					if (turno) {
-						tableroPartida.InsertarEn(fila, columna, this.Jugador1.getIcono(),
-								this.Jugador1.getColorJugador());// Inserta la ficha, dependiendo del
-						// booleano turno,inserta la ficha
-						// del jugador 1 o la del jugador2
-					} else {
-						tableroPartida.InsertarEn(fila, columna, this.Jugador2.getIcono(), Jugador2.getColorJugador());// Inserta
+					
+						if (turno) {
+							tableroPartida.InsertarEn(fila, columna, this.Jugador1.getIcono(),
+									this.Jugador1.getColorJugador());// Inserta la ficha, dependiendo del
+							// booleano turno,inserta la ficha
+							// del jugador 1 o la del jugador2
+						} else {
+							if(opcionIA==1) {
+								tableroPartida.InsertarEn(fila, columna, this.Jugador2.getIcono(), Jugador2.getColorJugador());// hay ningun simbolo
+							}
+							
+					
+					// Inserta
 																														// la
 																														// ficha,
 																														// dependiendo

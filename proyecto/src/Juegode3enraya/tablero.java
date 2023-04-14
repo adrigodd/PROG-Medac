@@ -295,5 +295,16 @@ public class tablero {
 		}
 		return simboloLocal;
 	}
+	public void InsertarfichaIA(char simbolo,String colorJugadorIA){
+		int fila;
+		int columna;
+		do {
+			fila= (int) (Math.random() * ((2 - 0)+1));
+			 columna= (int) (Math.random() * ((2 - 0)+1));
+		}while(this.tablero[fila][columna].isOcupado()==false);
+		this.tablero[fila][columna].setValor(simbolo);
+		this.tablero[fila][columna].setOcupado(true);
+		
+	}
 
 }
