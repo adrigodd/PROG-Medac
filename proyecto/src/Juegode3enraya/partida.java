@@ -15,7 +15,7 @@ public class partida {
 	private Jugador Jugador1;
 	private Jugador Jugador2;
 	private JugadorIA JugadorIA;
-	
+
 	private int color;
 
 	/**
@@ -23,22 +23,23 @@ public class partida {
 	 */
 	public void Jugar() {
 		Scanner sc = new Scanner(System.in);
+		boolean IA = false;
 		int opcionIA = 0;
 		do {
 			System.out.println("2 Jugadores o 1 vs IA");
 			System.out.println("1.2 Jugadores");
 			System.out.println("2.1 VS IA");
 			opcionIA = sc.nextInt();
-		}while(opcionIA!=1 && opcionIA!=2);
-		
-		if(opcionIA==1) {
+		} while (opcionIA != 1 && opcionIA != 2);
+
+		if (opcionIA == 1) {
 			Jugador1 = new Jugador('X');
 			Jugador2 = new Jugador('O');
-		}else {
+		} else {
 			Jugador1 = new Jugador('X');
-			JugadorIA= new JugadorIA();
+			JugadorIA = new JugadorIA();
 		}
-	
+
 		char vacio = '-';
 		boolean turno = true;
 		System.out.println("\u001B[0m" + "¿Quieres jugar? (Usa 1/2)");
@@ -46,14 +47,14 @@ public class partida {
 		System.out.println("2.Salir");
 		int opcion = sc.nextInt();
 		int reiniciar;
-		
+
 		switch (opcion) {
 
 		case 1:
 			do {
-				tableroPartida=new tablero();
-				turno=true;
-				
+				tableroPartida = new tablero();
+				turno = true;
+
 				System.out.println("\u001B[0m" + "Elige un color de estos Jugador1:");
 				System.out.println("Azul:1");
 				System.out.println("Verde:2");
@@ -70,12 +71,12 @@ public class partida {
 				System.out.println("Rosa:4");
 				System.out.println("Amarillo:5");
 				color = sc.nextInt();
-				if(opcionIA==1) {
+				if (opcionIA == 1) {
 					Jugador2.setColorJugador(diccionarioColores(color));
-				}else {
+				} else {
 					JugadorIA.setColorJugador(diccionarioColores(color));
 				}
-				
+
 				boolean posValida;
 				boolean correcto;
 				int fila = 0;
@@ -86,90 +87,102 @@ public class partida {
 					// while
 
 					do {
-						
 
 						mostrarTurno(turno);// Mostramos el turno
-						if(opcionIA==1) {
+						if (opcionIA == 1) {
 							tableroPartida.mostrarMatriz(Jugador1.getColorJugador(), Jugador2.getColorJugador(), turno);// Mostramos
 							// matriz
 							// en
 							// pantalla
-						}else {
-							tableroPartida.mostrarMatriz(Jugador1.getColorJugador(), JugadorIA.getColorJugadorIA(), turno);// Mostramos
+						} else {
+							tableroPartida.mostrarMatriz(Jugador1.getColorJugador(), JugadorIA.getColorJugadorIA(),
+									turno);// Mostramos
 							// matriz
 							// en
 							// pantalla
 						}
-						
+
 						correcto = false;
-						if(opcionIA==1) {
+						if (opcionIA == 1) {
 							System.out.println("\u001B[0m" + "Dame una fila (del 1 al 3)");// Pide filas
 							fila = sc.nextInt();
 							fila--;
-							
+
 							System.out.println("Dame una columna (del 1 al 3)");// Pide columnas
 							columna = sc.nextInt();
 							columna--;
-							
-						}else {
-							if(turno) {
+
+						} else {
+							if (turno) {
+								IA = false;
 								System.out.println("\u001B[0m" + "Dame una fila (del 1 al 3)");// Pide filas
 								fila = sc.nextInt();
 								fila--;
-								
+
 								System.out.println("Dame una columna (del 1 al 3)");// Pide columnas
 								columna = sc.nextInt();
 								columna--;
-							}else {
-								tableroPartida.InsertarfichaIA(JugadorIA.getIcono(),JugadorIA.getColorJugadorIA());							}
+							} else {
+								tableroPartida.InsertarfichaIAFacil(JugadorIA.getIcono(), JugadorIA.getColorJugadorIA());
+								IA = true;
+								turno = !turno;
+							}
 						}
 						posValida = tableroPartida.validarPosicion(fila, columna);
-																					// cumple
-																					// las condiciones de validar
-																					// posicion y se
-																					// la implementamos a una variable
-						if (posValida) {// si el validar posicion esta en true entra, si no se va al else de la posicion
-										// no es valida
-							if (!tableroPartida.HayValorPosicion(fila, columna)) {// Comprueba que haya un simbolo en la
-																					// posicion marcada
-								correcto = true;
+						// cumple
+						// las condiciones de validar
+						// posicion y se
+						// la implementamos a una variable
+						if (!IA) {
+							if (posValida) {// si el validar posicion esta en true entra, si no se va al else de la
+											// posicion
+								// no es valida
+								if (!tableroPartida.HayValorPosicion(fila, columna)) {// Comprueba que haya un simbolo
+																						// en la
+									// posicion marcada
+									correcto = true;
+								} else {
+									System.out.println("Ya hay una marca en esa posicion");
+								}
 							} else {
-								System.out.println("Ya hay una marca en esa posicion");
+								System.out.println("La posicion no es valida");
 							}
-						} else {
-							System.out.println("La posicion no es valida");
 						}
 
 					} while (!correcto);// haces el do while mientras el booleano correcto que esta inicializado en
 										// false, pasa a ser true, que la unica manera es si la posicion es valida y no
-					
-						if (turno) {
-							tableroPartida.InsertarEn(fila, columna, this.Jugador1.getIcono(),
-									this.Jugador1.getColorJugador());// Inserta la ficha, dependiendo del
-							// booleano turno,inserta la ficha
-							// del jugador 1 o la del jugador2
-						} else {
-							if(opcionIA==1) {
-								tableroPartida.InsertarEn(fila, columna, this.Jugador2.getIcono(), Jugador2.getColorJugador());// hay ningun simbolo
-							}
-							
-					
-					// Inserta
-																														// la
-																														// ficha,
-																														// dependiendo
-																														// del
+
+					if (turno) {
+						tableroPartida.InsertarEn(fila, columna, this.Jugador1.getIcono(),
+								this.Jugador1.getColorJugador());// Inserta la ficha, dependiendo del
+						// booleano turno,inserta la ficha
+						// del jugador 1 o la del jugador2
+					} else {
+						if (opcionIA == 1) {
+							tableroPartida.InsertarEn(fila, columna, this.Jugador2.getIcono(),
+									Jugador2.getColorJugador());// hay ningun simbolo
+						}
+
+						// Inserta
+						// la
+						// ficha,
+						// dependiendo
+						// del
 						// booleano turno,inserta la ficha
 						// del jugador 1 o la del jugador2
 					}
 					turno = !turno;
 
 				}
+				if (opcionIA == 1) {
+					tableroPartida.mostrarMatriz(Jugador1.getColorJugador(), Jugador2.getColorJugador(), turno);// le
+					// muestra
+					// la matriz
+					// actualizada
+				} else {
+					tableroPartida.mostrarMatriz(Jugador1.getColorJugador(), JugadorIA.getColorJugadorIA(), turno);
+				}
 
-				tableroPartida.mostrarMatriz(Jugador1.getColorJugador(), Jugador2.getColorJugador(), turno);// le
-																											// muestra
-																											// la matriz
-																											// actualizada
 				mostrarGanador(tableroPartida, vacio, fila, columna);// comprueba que tras la posicion haya algun
 																		// ganador
 				System.out.println("¿Quieres reiniciar (Usa 1/2)");
@@ -191,8 +204,10 @@ public class partida {
 
 	public void mostrarGanador(tablero tableroPartida, char simboloDef, int fila, int columna) {
 		char simbolo = tableroPartida.coincidenciaLinea(fila);
+		boolean sigue = true;
+
 		if (simbolo != simboloDef) {// primero comprobamos que el simbolo de coincidencialinea sea diferente al
-									// simbolodef
+			sigue = false; // simbolodef
 			if (simbolo == this.Jugador1.getIcono()) {
 				System.out.println("Ha ganado el jugador 1 por linea");
 			} else {
@@ -202,6 +217,7 @@ public class partida {
 		simbolo = tableroPartida.coincidenciaColumna(columna);
 
 		if (simbolo != simboloDef) {
+			sigue = false;
 			if (simbolo == this.Jugador1.getIcono()) {
 				System.out.println("Ha ganado el jugador 1 por columna");
 			} else {
@@ -211,18 +227,23 @@ public class partida {
 
 		simbolo = tableroPartida.coincidenciaDiagonal();
 		if (simbolo != simboloDef) {
+			sigue = false;
 			if (simbolo == this.Jugador1.getIcono()) {
 				System.out.println("Ha ganado el jugador 1 por diagonal");
 			} else {
 				System.out.println("Ha ganado el jugador 2 por diagonal");
 			}
 		}
-		if (tableroPartida.matrizLlena() && (tableroPartida.coincidenciaLinea(fila) == simboloDef
-				|| tableroPartida.coincidenciaColumna(columna) == simboloDef
-				|| tableroPartida.coincidenciaDiagonal() != simboloDef)) {// este if indica que si la matriz esta llena
-																			// y no hay coincidencia, hay un empate
-			System.out.println("EMPATE");
+		if (sigue) {
+			if (tableroPartida.matrizLlena() && (tableroPartida.coincidenciaLinea(fila) != simboloDef
+					|| tableroPartida.coincidenciaColumna(columna) != simboloDef
+					|| tableroPartida.coincidenciaDiagonal() != simboloDef)) {// este if indica que si la matriz esta
+																				// llena
+																				// y no hay coincidencia, hay un empate
+				System.out.println("EMPATE");
+			}
 		}
+
 	}
 
 	/**

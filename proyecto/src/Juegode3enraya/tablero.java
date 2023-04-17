@@ -167,14 +167,11 @@ public class tablero {
 		if (this.tablero[fila][0].isOcupado()) {
 			for (int j = 1; j < this.tablero.length; j++) {
 				if (coincidencia) {
-					coincidencia = (simbolo == this.tablero[fila][j].getValor());// Entra de primeras en este if ya que
-																					// la coincidencia de primeras esta
-																					// en true,cuando entra el booleano
-																					// de la derecha se lo aplica a
-																					// coincidencia, hay dos opciones si
-																					// ese booleano devuelve un true la
-																					// siguiente interaccion si entra a
-																					// revisar, si no, ni lo revisa.
+					coincidencia = (simbolo == this.tablero[fila][j].getValor());
+					// Entra de primeras en este if ya que la coincidencia de primeras esta en true,
+					// cuando entra el booleano de la derecha se lo aplica a coincidencia,
+					// hay dos opciones si ese booleano devuelve un true la siguiente interaccion
+					// si entra a revisar, si no, ni lo revisa.
 				}
 
 			}
@@ -295,16 +292,18 @@ public class tablero {
 		}
 		return simboloLocal;
 	}
-	public void InsertarfichaIA(char simbolo,String colorJugadorIA){
+
+	public void InsertarfichaIAFacil(char simbolo, String colorJugadorIA) {
 		int fila;
 		int columna;
+
 		do {
-			fila= (int) (Math.random() * ((2 - 0)+1));
-			 columna= (int) (Math.random() * ((2 - 0)+1));
-		}while(this.tablero[fila][columna].isOcupado()==false);
+			fila = (int) (Math.random() * ((2 - 0) + 1));
+			columna = (int) (Math.random() * ((2 - 0) + 1));
+		} while (this.tablero[fila][columna].isOcupado() != false);
 		this.tablero[fila][columna].setValor(simbolo);
 		this.tablero[fila][columna].setOcupado(true);
-		
+
 	}
 
 }
