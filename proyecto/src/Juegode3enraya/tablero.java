@@ -305,5 +305,6 @@ public class tablero {
 		this.tablero[fila][columna].setOcupado(true);
 
 	}
+	
 
 }

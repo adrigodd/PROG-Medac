@@ -189,7 +189,7 @@ public class partida {
 				System.out.println("1.Si");
 				System.out.println("2.No");
 				reiniciar = sc.nextInt();
-			} while (reiniciar == 1);
+			} while (reiniciar == 1 );
 			System.out.println("Nos vemos en otra epoca");
 
 			break;
