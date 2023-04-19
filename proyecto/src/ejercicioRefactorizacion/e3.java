@@ -4,13 +4,17 @@ import java.util.Scanner;
 /**
  * 
  * @author Adrián Sánchez Nieto
- * El ejercicio empieza pidiendote el length de la matriz,sabiendo el length de la matriz hace un for en el cual empieza el 0 y acaba en
- * el length que has puesto anteriormente y le va pidiendo numeros, en este for pide el numero y hace la sumatoria a la misma vez
- * y al final hace el promedio diviendo la sumatoria/el length de la matriz.
+ * 
  *
  */
 public class e3 {
-
+/**
+ * 
+ * @param args
+ * El ejercicio empieza pidiendote el length de la matriz,sabiendo el length de la matriz hace un for en el cual empieza el 0 y acaba en
+ * el length que has puesto anteriormente y le va pidiendo numeros, en este for pide el numero y hace la sumatoria a la misma vez
+ * y al final hace el promedio diviendo la sumatoria/el length de la matriz.
+ */
 	  public static void main(String[] args) {
 		    
 		    Scanner sc = new Scanner(System.in);
