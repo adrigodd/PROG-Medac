@@ -11,6 +11,7 @@ package Juegode3enraya;
 public class celda {
 	private char valor;
 	private boolean ocupado;
+	
 
 	/**
 	 * Constructor vacío.
@@ -20,8 +21,10 @@ public class celda {
 	 */
 	public celda() {
 		this.ocupado = false;
+		
 	}
 
+	
 	/**
 	 * Constructor con parámetros.
 	 * 
@@ -30,6 +33,7 @@ public class celda {
 	public celda(char valor) {
 		this.valor = valor;
 		this.ocupado = false;
+		
 	}
 
 	/**
