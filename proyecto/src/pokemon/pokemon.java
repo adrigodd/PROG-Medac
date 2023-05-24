@@ -6,7 +6,7 @@ private String tipo1;
 private String ata1;
 private String ata2;
 private String ata3;
-private String ata4
+private String ata4;
 private String tipo2;
 private int lvl=50;
 
@@ -72,5 +72,4 @@ public String toString() {
 }
 
 	
-}
 }

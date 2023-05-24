@@ -20,8 +20,8 @@ public class ejercicio9 {
 		 System.out.println(frase3);
 		 int c=sc.nextInt();
 		 
-		 double resultadoMas=((-b)+Math.sqrt(Math.pow(b,2)-4*a*c))/2*a;
-		 double resultadoMenos=((-b)-Math.sqrt(Math.pow(b,2)-4*a*c))/2*a;
+		 double resultadoMas=(((-b)+Math.sqrt(Math.pow(b,2)-4*a*c))/2*a);
+		 double resultadoMenos=(((-b)-Math.sqrt(Math.pow(b,2)-4*a*c))/2*a);
 		
 		 String frase4="Tu resultado a la ecuacion de segundo grado es "+resultadoMas;
 		 System.out.println(frase4);
