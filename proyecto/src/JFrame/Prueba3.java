@@ -50,30 +50,32 @@ public class Prueba3 extends JFrame {
 		
 		JButton btnNewButton = new JButton("Mostrar");
 		
-		btnNewButton.setBounds(172, 5, 89, 23);
+		btnNewButton.setBounds(325, 11, 89, 23);
 		panel.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("New button");
+	
+		btnNewButton_1.setBounds(325, 56, 89, 23);
+		panel.add(btnNewButton_1);
 		
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1);
 		panel_1.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JTextArea txtrAdadadad = new JTextArea();
+		JTextArea texto = new JTextArea();
 		;
-		panel_1.add(txtrAdadadad);
+		panel_1.add(texto);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int contador=1;
-				do {
-					if(e==tr
-							ue) {
-						txtrAdadadad.setText("Mostrado");
-					}else {
-						contador=0;
-					}
+			
 					
-				}while(contador==0);
-					
+						texto.append("Hola"+"\n");					
 		
+			}	
+		});
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 	}
