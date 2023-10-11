@@ -115,7 +115,7 @@ public class Actividades3_3 extends JFrame {
 		JPanel panel_17 = new JPanel();
 		panel_10.add(panel_17);
 		
-		JButton btnNewButton_1 = new JButton("New button");
+		JButton btnNewButton_1 = new JButton("Volver");
 		panel_17.add(btnNewButton_1);
 		
 		JPanel panel_3 = new JPanel();
@@ -157,7 +157,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.setLayout(new GridLayout(5, 5, 0, 0));
 		
 		JButton Fila1Columna1 = new JButton("");
-		Fila1Columna1.setBackground(new Color(255, 255, 255));
+		Fila1Columna1.setBackground(Color.white);
 		Fila1Columna1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila1Columna1.getBackground()==Color.white) {
@@ -174,7 +174,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila1Columna1);
 		
 		JButton Fila2Columna1 = new JButton("");
-		Fila2Columna1.setBackground(new Color(255, 255, 255));
+		Fila2Columna1.setBackground(Color.white);
 		Fila2Columna1.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
 		Fila2Columna1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -191,7 +191,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila2Columna1);
 		
 		JButton Fila3Columna1 = new JButton("");
-		Fila3Columna1.setBackground(new Color(255, 255, 255));
+		Fila3Columna1.setBackground(Color.white);
 		Fila3Columna1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila3Columna1.getBackground()==Color.white) {
@@ -208,7 +208,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila3Columna1);
 		
 		JButton Fila4Columna1 = new JButton("");
-		Fila4Columna1.setBackground(new Color(255, 255, 255));
+		Fila4Columna1.setBackground(Color.white);
 		Fila4Columna1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila4Columna1.getBackground()==Color.white) {
@@ -225,7 +225,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila4Columna1);
 		
 		JButton Fila5Columna1 = new JButton("");
-		Fila5Columna1.setBackground(new Color(255, 255, 255));
+		Fila5Columna1.setBackground(Color.white);
 		Fila5Columna1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila5Columna1.getBackground()==Color.white) {
@@ -242,7 +242,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila5Columna1);
 		
 		JButton Fila1Columna2 = new JButton("");
-		Fila1Columna2.setBackground(new Color(255, 255, 255));
+		Fila1Columna2.setBackground(Color.white);
 		Fila1Columna2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila1Columna2.getBackground()==Color.white) {
@@ -310,7 +310,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila4Columna2);
 		
 		JButton Fila5Columna2 = new JButton("");
-		Fila5Columna2.setBackground(new Color(255, 255, 255));
+		Fila5Columna2.setBackground(Color.white);
 		Fila5Columna2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila5Columna2.getBackground()==Color.white) {
@@ -327,7 +327,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila5Columna2);
 		
 		JButton Fila1Columna3 = new JButton("");
-		Fila1Columna3.setBackground(new Color(255, 255, 255));
+		Fila1Columna3.setBackground(Color.white);
 		Fila1Columna3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila1Columna3.getBackground()==Color.white) {
@@ -344,7 +344,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila1Columna3);
 		
 		JButton Fila2Columna3 = new JButton("");
-		Fila2Columna3.setBackground(new Color(255, 255, 255));
+		Fila2Columna3.setBackground(Color.white);
 		Fila2Columna3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila2Columna3.getBackground()==Color.white) {
@@ -361,7 +361,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila2Columna3);
 		
 		JButton Fila3Columna3 = new JButton("");
-		Fila3Columna3.setBackground(new Color(255, 255, 255));
+		Fila3Columna3.setBackground(Color.white);
 		Fila3Columna3.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
 		Fila3Columna3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -395,6 +395,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila4Columna3);
 		
 		JButton Fila5Columna3 = new JButton("");
+		Fila5Columna3.setBackground(Color.white);
 		Fila5Columna3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila5Columna3.getBackground()==Color.white) {
@@ -412,6 +413,7 @@ public class Actividades3_3 extends JFrame {
 		
 		JButton Fila1Columna4 = new JButton("");
 		Fila1Columna4.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila1Columna4.setBackground(Color.white);
 		Fila1Columna4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila1Columna4.getBackground()==Color.white) {
@@ -427,6 +429,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila1Columna4);
 		
 		JButton Fila2Columna4 = new JButton("");
+		Fila2Columna4.setBackground(Color.white);
 		Fila2Columna4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila2Columna4.getBackground()==Color.white) {
@@ -443,6 +446,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila2Columna4);
 		
 		JButton Fila3Columna4 = new JButton("");
+		Fila3Columna4.setBackground(Color.white);
 		Fila3Columna4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila3Columna4.getBackground()==Color.white) {
@@ -459,6 +463,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila3Columna4);
 		
 		JButton Fila4Columna4 = new JButton("");
+		Fila4Columna4.setBackground(Color.white);
 		Fila4Columna4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila4Columna4.getBackground()==Color.white) {
@@ -496,6 +501,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila1Columna5);
 		
 		JButton Fila2Columna5 = new JButton("");
+		Fila2Columna5.setBackground(Color.white);
 		Fila2Columna5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila1Columna5.getBackground()==Color.white) {
@@ -508,6 +514,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
+		Fila1Columna5.setBackground(Color.white);
 		Fila1Columna5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila2Columna5.getBackground()==Color.white) {
@@ -524,6 +531,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila2Columna5);
 		
 		JButton Fila3Columna5 = new JButton("");
+		Fila3Columna5.setBackground(Color.white);
 		Fila3Columna5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila3Columna5.getBackground()==Color.white) {
@@ -540,6 +548,7 @@ public class Actividades3_3 extends JFrame {
 		panel_4.add(Fila3Columna5);
 		
 		JButton Fila4Columna5 = new JButton("");
+		Fila4Columna5.setBackground(Color.white);
 		Fila4Columna5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila4Columna5.getBackground()==Color.white) {
