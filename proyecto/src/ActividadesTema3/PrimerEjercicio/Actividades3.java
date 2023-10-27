@@ -1,10 +1,11 @@
-package JFrame;
+package ActividadesTema3.PrimerEjercicio;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -119,6 +120,16 @@ public class Actividades3 extends JFrame {
 						
 						
 					}
+					if(seguir) {
+						Actividades Dialog = new Actividades();
+						Dialog.setVisible(true);
+					}else {
+						Dialog2 Dialog = new Dialog2();
+						Dialog.setVisible(true);
+					}
+					}else {
+						Dialog2 Dialog = new Dialog2();
+						Dialog.setVisible(true);
 					}
 				}else {
 					Dialog2 Dialog = new Dialog2();
@@ -127,13 +138,7 @@ public class Actividades3 extends JFrame {
 					
 				}
 			
-					if(seguir) {
-						Actividades Dialog = new Actividades();
-						Dialog.setVisible(true);
-					}else {
-						Dialog2 Dialog = new Dialog2();
-						Dialog.setVisible(true);
-					}
+					
 				
 				
 				

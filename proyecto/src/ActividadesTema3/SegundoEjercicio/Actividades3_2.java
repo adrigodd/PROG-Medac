@@ -1,4 +1,4 @@
-package JFrame;
+package ActividadesTema3.SegundoEjercicio;
 
 import java.awt.EventQueue;
 

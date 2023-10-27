@@ -1,4 +1,4 @@
-package JFrame;
+package ActividadesTema3.PrimerEjercicio;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -7,23 +7,23 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
 
-public class Actividades extends JDialog {
+public class Dialog2 extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
-	private JTextField txtBienvenido;
+	private JTextField txtTeHasEquivocado;
+	private static Dialog2 dialog= new Dialog2();
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		try {
-			Actividades dialog = new Actividades();
+		
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -34,18 +34,18 @@ public class Actividades extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public Actividades() {
+	public Dialog2() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			txtBienvenido = new JTextField();
-			txtBienvenido.setText("BIENVENIDO");
-			txtBienvenido.setBounds(135, 29, 162, 146);
-			contentPanel.add(txtBienvenido);
-			txtBienvenido.setColumns(10);
+			txtTeHasEquivocado = new JTextField();
+			txtTeHasEquivocado.setText("Te has equivocado");
+			txtTeHasEquivocado.setBounds(136, 69, 160, 20);
+			contentPanel.add(txtTeHasEquivocado);
+			txtTeHasEquivocado.setColumns(10);
 		}
 		{
 			JPanel buttonPane = new JPanel();

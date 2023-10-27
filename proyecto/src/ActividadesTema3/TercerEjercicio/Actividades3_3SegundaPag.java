@@ -1,66 +1,60 @@
-package JFrame;
+package ActividadesTema3.TercerEjercicio;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import java.awt.GridLayout;
-import javax.swing.JTextArea;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
-import java.awt.FlowLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Actividades3_3 extends JFrame {
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+public class Actividades3_3SegundaPag extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private String verde = "\u001B[32m";
+	private JPanel contentPanel = new JPanel();
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Actividades3_3 frame = new Actividades3_3();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		try {
+			Actividades3_3SegundaPag dialog = new Actividades3_3SegundaPag();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the dialog.
 	 */
-	public Actividades3_3() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public Actividades3_3SegundaPag() {
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPanel = new JPanel();
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPanel);
+		contentPanel.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
-		contentPane.add(panel, BorderLayout.NORTH);
+		contentPanel.add(panel, BorderLayout.NORTH);
 		
 		JLabel lblNewLabel = new JLabel("PANTALLA");
 		panel.add(lblNewLabel);
 		
 		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.WEST);
+		contentPanel.add(panel_1, BorderLayout.WEST);
 		panel_1.setLayout(new GridLayout(5, 1, 0, 0));
 		
 		JPanel panel_6 = new JPanel();
@@ -99,7 +93,7 @@ public class Actividades3_3 extends JFrame {
 		panel_8.add(lblNewLabel_5);
 		
 		JPanel panel_2 = new JPanel();
-		contentPane.add(panel_2, BorderLayout.SOUTH);
+		contentPanel.add(panel_2, BorderLayout.SOUTH);
 		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panel_10 = new JPanel();
@@ -110,16 +104,30 @@ public class Actividades3_3 extends JFrame {
 		panel_10.add(panel_16);
 		
 		JButton btnNewButton = new JButton("Comprar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Actividades3_3TerceraPagina comprar=new Actividades3_3TerceraPagina();
+				comprar.setVisible(true);
+			
+			}
+				
+		});
 		panel_16.add(btnNewButton);
 		
 		JPanel panel_17 = new JPanel();
 		panel_10.add(panel_17);
 		
 		JButton btnNewButton_1 = new JButton("Volver");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				
+			}
+		});
 		panel_17.add(btnNewButton_1);
 		
 		JPanel panel_3 = new JPanel();
-		contentPane.add(panel_3, BorderLayout.EAST);
+		contentPanel.add(panel_3, BorderLayout.EAST);
 		panel_3.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panel_11 = new JPanel();
@@ -153,7 +161,7 @@ public class Actividades3_3 extends JFrame {
 		panel_12.add(lblNewLabel_10);
 		
 		JPanel panel_4 = new JPanel();
-		contentPane.add(panel_4, BorderLayout.CENTER);
+		contentPanel.add(panel_4, BorderLayout.CENTER);
 		panel_4.setLayout(new GridLayout(5, 5, 0, 0));
 		
 		JButton Fila1Columna1 = new JButton("");
@@ -170,12 +178,12 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila1Columna1.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila1Columna1.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila1Columna1);
 		
 		JButton Fila2Columna1 = new JButton("");
 		Fila2Columna1.setBackground(Color.white);
-		Fila2Columna1.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila2Columna1.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		Fila2Columna1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila2Columna1.getBackground()==Color.white) {
@@ -204,7 +212,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila3Columna1.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila3Columna1.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila3Columna1);
 		
 		JButton Fila4Columna1 = new JButton("");
@@ -221,7 +229,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila4Columna1.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila4Columna1.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila4Columna1);
 		
 		JButton Fila5Columna1 = new JButton("");
@@ -238,7 +246,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila5Columna1.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila5Columna1.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila5Columna1);
 		
 		JButton Fila1Columna2 = new JButton("");
@@ -255,7 +263,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila1Columna2.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila1Columna2.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila1Columna2);
 		
 		JButton Fila2Columna2 = new JButton("");
@@ -272,7 +280,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila2Columna2.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila2Columna2.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila2Columna2);
 		
 		JButton Fila3Columna2 = new JButton("");
@@ -289,7 +297,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila3Columna2.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila3Columna2.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila3Columna2);
 		
 		JButton Fila4Columna2 = new JButton("");
@@ -306,7 +314,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila4Columna2.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila4Columna2.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila4Columna2);
 		
 		JButton Fila5Columna2 = new JButton("");
@@ -323,7 +331,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila5Columna2.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila5Columna2.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila5Columna2);
 		
 		JButton Fila1Columna3 = new JButton("");
@@ -340,7 +348,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila1Columna3.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila1Columna3.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila1Columna3);
 		
 		JButton Fila2Columna3 = new JButton("");
@@ -357,12 +365,12 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila2Columna3.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila2Columna3.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila2Columna3);
 		
 		JButton Fila3Columna3 = new JButton("");
 		Fila3Columna3.setBackground(Color.white);
-		Fila3Columna3.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila3Columna3.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		Fila3Columna3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila3Columna3.getBackground()==Color.white) {
@@ -391,7 +399,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila4Columna3.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila4Columna3.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila4Columna3);
 		
 		JButton Fila5Columna3 = new JButton("");
@@ -408,11 +416,11 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila5Columna3.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila5Columna3.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila5Columna3);
 		
 		JButton Fila1Columna4 = new JButton("");
-		Fila1Columna4.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila1Columna4.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		Fila1Columna4.setBackground(Color.white);
 		Fila1Columna4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -442,7 +450,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila2Columna4.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila2Columna4.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila2Columna4);
 		
 		JButton Fila3Columna4 = new JButton("");
@@ -459,7 +467,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila3Columna4.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila3Columna4.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila3Columna4);
 		
 		JButton Fila4Columna4 = new JButton("");
@@ -476,7 +484,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila4Columna4.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila4Columna4.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila4Columna4);
 		
 		JButton Fila5Columna4 = new JButton("");
@@ -493,29 +501,16 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila5Columna4.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila5Columna4.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila5Columna4);
 		
 		JButton Fila1Columna5 = new JButton("");
-		Fila1Columna5.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila1Columna5.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila1Columna5);
 		
 		JButton Fila2Columna5 = new JButton("");
 		Fila2Columna5.setBackground(Color.white);
 		Fila2Columna5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(Fila1Columna5.getBackground()==Color.white) {
-					Fila1Columna5.setBackground(Color.GREEN);
-				}else if(Fila1Columna5.getBackground()==Color.GREEN) {
-					Fila1Columna5.setBackground(Color.white);
-				}
-				
-			}
-			
-			
-		});
-		Fila1Columna5.setBackground(Color.white);
-		Fila1Columna5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Fila2Columna5.getBackground()==Color.white) {
 					Fila2Columna5.setBackground(Color.GREEN);
@@ -527,7 +522,20 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila2Columna5.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila1Columna5.setBackground(Color.white);
+		Fila1Columna5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(Fila1Columna5.getBackground()==Color.white) {
+					Fila1Columna5.setBackground(Color.GREEN);
+				}else if(Fila2Columna5.getBackground()==Color.GREEN) {
+					Fila1Columna5.setBackground(Color.white);
+				}
+				
+			}
+			
+			
+		});
+		Fila2Columna5.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila2Columna5);
 		
 		JButton Fila3Columna5 = new JButton("");
@@ -544,7 +552,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila3Columna5.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila3Columna5.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila3Columna5);
 		
 		JButton Fila4Columna5 = new JButton("");
@@ -561,7 +569,7 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila4Columna5.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila4Columna5.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila4Columna5);
 		
 		JButton Fila5Columna5 = new JButton("");
@@ -578,8 +586,8 @@ public class Actividades3_3 extends JFrame {
 			
 			
 		});
-		Fila5Columna5.setIcon(new ImageIcon("C:\\Users\\AlumnoT\\Documents\\GitHub\\PROG-Medac\\proyecto\\src\\Imagen\\85671 (1).png"));
+		Fila5Columna5.setIcon(new ImageIcon(Actividades3_3SegundaPag.class.getResource("/Imagen/85671 (1).png")));
 		panel_4.add(Fila5Columna5);
+		
 	}
-
 }
