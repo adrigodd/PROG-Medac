@@ -1,0 +1,14 @@
+<hibernate-mapping>
+<class name = "Empleado" table = "Empleado">
+<meta attribute = “descripcion-tabla”>
+
+</meta>
+<id name = “id” type = “int” column = “id”>
+<generator class=”native”/>
+</id>
+<property name = "nombre" column = “first_name” type = “string”/>
+<property name = "salario" column = "salario" type = "double"/>
+
+</class>
+</hibernate-mapping>
+
